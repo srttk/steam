@@ -3,8 +3,9 @@
 <?php
 
 {% if orders|length > 0 %}
+<ul>
  {% for item in orders %}
             <li><a >{{ item.title }}</a></li>
         {% endfor %}
-        </ul>
+</ul>
 {% endif %}

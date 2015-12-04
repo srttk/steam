@@ -25,7 +25,7 @@
 	<div class="container">
 		<head>
 			<h1>Steam framework</h1>
-			<p>A PHP Components based framework</p>
+			<p>A  PHP Composer  Component based framework</p>
 		</head
 	</div>
 </body>

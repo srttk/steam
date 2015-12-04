@@ -5,11 +5,19 @@ define('ROOT_PATH',__DIR__."/../");
 
 $dotenv = new Dotenv\Dotenv(ROOT_PATH);
 $dotenv->load();
-$app = new \Slim\App();
+
+//
+$configuration = [
+    'settings' => [
+        'displayErrorDetails' => false,
+    ],
+];
+
+$app = new \Slim\App($configuration);
 
 $app->config(array(
     'debug' => true,
-    'templates.path' => '../views'
+    'templates.path' => ROOT_PATH.'app/views'
 ));
 
 // Setting Twig views
@@ -17,7 +25,7 @@ $container = $app->getContainer();
 
 // Register Twig View helper
 $container['view'] = function ($c) {
-    $view = new \Slim\Views\Twig('../views', [
+    $view = new \Slim\Views\Twig(ROOT_PATH.'app/views', [
         //'cache' => '../cache'
     ]);
 
@@ -32,6 +40,10 @@ $container['view'] = function ($c) {
 
 
 
+
+
+
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 $capsule = new Capsule;
 $capsule->addConnection([
@@ -41,4 +53,6 @@ $capsule->addConnection([
 ]);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
+
+
 
