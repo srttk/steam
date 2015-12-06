@@ -13,12 +13,5 @@ $app->get('/orders', function ($req,$res,$args) {
     return $this->view->render($res,'orders/index.php',compact('orders'));
 });
 
-$app->get('/users',function($req,$res,$args){
-
-	$users = User::all();
-
-	var_dump($users);
-
-});
 
 $app->run();
