@@ -1,0 +1,22 @@
+{
+  "name": "steam",
+  "homepage": "https://github.com/saratonite/steam",
+  "authors": [
+    "Sarath <sarath.hacks@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
