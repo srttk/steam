@@ -20,6 +20,8 @@ $app->config(array(
     'templates.path' => ROOT_PATH.'app/views'
 ));
 
+
+
 // Setting Twig views
 $container = $app->getContainer();
 
