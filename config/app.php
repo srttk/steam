@@ -1,7 +1,4 @@
 <?php
 return [
-	'url' => 'http://localhost',
-	'db'=>[
-	
-	]
-]
+	'url' => 'http://localhost'
+];

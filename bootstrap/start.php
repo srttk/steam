@@ -6,12 +6,16 @@ define('ROOT_PATH',__DIR__."/../");
 $dotenv = new Dotenv\Dotenv(ROOT_PATH);
 $dotenv->load();
 
-
+$configuration = [
+    'settings' => [
+        'displayErrorDetails' => true,
+    ],
+];
 // Service Contaner
-$container = new \Slim\Container;
+$container = new \Slim\Container($configuration);
 
 $container['config'] = function($c){
-    return new \Noodlehaus\Config(__DIR__.'/config/app.php');
+    return new \Noodlehaus\Config(ROOT_PATH.'config/app.php');
 };
 
 // Register Twig View helper
@@ -30,6 +34,12 @@ $container['view'] = function ($c) {
 };
 
 $app = new \Slim\App($container);
+
+// Require the app routes
+require_once(ROOT_PATH."app/routes.php");
+
+
+$app->run();
 
 
 
