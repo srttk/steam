@@ -6,24 +6,13 @@ define('ROOT_PATH',__DIR__."/../");
 $dotenv = new Dotenv\Dotenv(ROOT_PATH);
 $dotenv->load();
 
-//
-$configuration = [
-    'settings' => [
-        'displayErrorDetails' => false,
-    ],
-];
 
-$app = new \Slim\App($configuration);
+// Service Contaner
+$container = new \Slim\Container;
 
-$app->config(array(
-    'debug' => true,
-    'templates.path' => ROOT_PATH.'app/views'
-));
-
-
-
-// Setting Twig views
-$container = $app->getContainer();
+$container['config'] = function($c){
+    return new \Noodlehaus\Config(__DIR__.'/config/app.php');
+};
 
 // Register Twig View helper
 $container['view'] = function ($c) {
@@ -39,6 +28,8 @@ $container['view'] = function ($c) {
 
     return $view;
 };
+
+$app = new \Slim\App($container);
 
 
 
